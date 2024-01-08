@@ -1,3 +1,15 @@
+"""
+Author:         Evan Romano
+Date:           12/4/2023
+Assignment:     Project 02
+Course:         CPSC1051
+Lab Section:    004
+
+CODE DESCRIPTION:
+
+"""
+
+
 from room import Room
 from adventure_map import AdventureMap
 from inventory import Inventory
@@ -73,7 +85,7 @@ def main():
     name = "study"
     print(adventure_map.get_room(name).__str__())
     # gameplay loop
-    actions = 0
+    actions = 1
     gameplay = True
     while True:
         print("Please choose an action: ")
@@ -85,6 +97,7 @@ def main():
         elif action_choice[-4] == "R":
             action_choice.replace("Room", " Room")
         if action_choice in inputs["exit"]:
+            # action count for last test
             actions += 1
             print("Where would you like to go?")
             room_choice = input()
@@ -111,6 +124,7 @@ def main():
                     items = items + item.name + ", "
                 items = items[:-2]
                 print(f"{items}.")
+                # different action choices that depend on whether items in inventory or not
         elif action_choice == "inventory":
             actions += 1
             print("INVENTORY:")
@@ -166,7 +180,7 @@ def main():
         if not gameplay:
             break
     with open("gamelog.txt","w") as f:
-        f.write(str(actions))
+        f.write(f"Congratulations! You finished the game in {actions} steps.")
 
 if __name__ == "__main__":
     main()

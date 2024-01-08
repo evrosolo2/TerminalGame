@@ -1,6 +1,6 @@
 from room import Room
 from room_not_found_error import RoomNotFoundError
-
+# adventure map class from lab 8 will get room name and add to dictionary
 class AdventureMap:
     map = {}
 
@@ -12,3 +12,4 @@ class AdventureMap:
             raise RoomNotFoundError
         else:
             return self.map[name.lower()]
+

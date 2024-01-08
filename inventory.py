@@ -3,4 +3,3 @@ class Inventory:
 
     def add_item(self, item):
         self.inventory.append(item)
-
